@@ -1,5 +1,5 @@
 /// carrito de compras
-alert ("¡Bienvenido/a a la página de Frávega Electrónica! Aquí podrás ver los últimos productos del mercado y comprar desde la facilidad de tu hogar")
+//alert ("¡Bienvenido/a a la página de Frávega Electrónica! Aquí podrás ver los últimos productos del mercado y comprar desde la facilidad de tu hogar")
 
 
 //productos
@@ -19,12 +19,21 @@ let p2 = new productos ("Parlantes", 6000, "electrónica")
 let p3 = new productos ("Notebook", 150000, "electrónica")
 let p4 = new productos ("Monitor", 70000, "electrónica")
 
-alert ("Estos son los productos que actualmente tenemos en stock: " + p0.nombre + ", " + p1.nombre + ", " +  p2.nombre + ", " +  p3.nombre + ", " +  p4.nombre + ".") 
+//alert ("Estos son los productos que actualmente tenemos en stock: " + p0.nombre + ", " + p1.nombre + ", " +  p2.nombre + ", " +  p3.nombre + ", " +  p4.nombre + ".") 
 
 arrayStock = ["Teclado", "Mouse", "Parlantes", "Notebook", "Monitor"]
 
+//agregar elementos con botón ID
+const botoncitoCargar = document.getElementById("botoncito");
+
+botoncitoCargar.addEventListener ('click', cargarProductos)
+
 //array vacío, que será llenado con los productos que seleccione en mi tienda 
 let arrayProductosElegidos = []
+
+//function para cargar cositas 
+function cargarProductos (productos) {
+
 let opcionUsuario
 while (opcionUsuario != 5){    
 opcionUsuario = parseInt (prompt ("Estos son los productos que tenemos en stock: " + arrayStock + ". Selecciona el número, del 0 al 4, del producto que deseas comprar. Aprieta 5 para salir de la opción compras")) 
@@ -73,6 +82,10 @@ else {
 }
 }
 
+
+//guardar el array de compras en el localStorage
+localStorage.setItem ('carrito', JSON.stringify(arrayProductosElegidos))
+
 //total de la compra
 alert ("Seleccionaste " + arrayProductosElegidos.length + " productos!")
 console.log ("Seleccionaste " + arrayProductosElegidos.length + " productos!")
@@ -89,3 +102,4 @@ console.log ("El total de tu compra es: $" + suma)
 
 alert ("¡Gracias por elegir Frávega electrónica! Hasta la próxima ;)")
 console.log ("¡Gracias por elegir Frávega electrónica! Hasta la próxima ;)")
+}
