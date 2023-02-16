@@ -1,5 +1,7 @@
 /// carrito de compras
 //alert ("¡Bienvenido/a a la página de Frávega Electrónica! Aquí podrás ver los últimos productos del mercado y comprar desde la facilidad de tu hogar")
+import swal from 'sweetalert';
+const { default: swal } = require("sweetalert")
 
 
 //productos
@@ -27,6 +29,12 @@ arrayStock = ["Teclado", "Mouse", "Parlantes", "Notebook", "Monitor"]
 const botoncitoCargar = document.getElementById("botoncito");
 
 botoncitoCargar.addEventListener ('click', cargarProductos)
+swal.fire ({
+    title: 'Genial',
+    text: 'Clickeaste el botón',
+    icon: 'success',
+    confirmButtonText: 'cool',
+})
 
 //array vacío, que será llenado con los productos que seleccione en mi tienda 
 let arrayProductosElegidos = []
@@ -43,41 +51,55 @@ opcionUsuario = parseInt (prompt ("Estos son los productos que tenemos en stock:
 if (opcionUsuario == 0) 
     {
         arrayProductosElegidos.push(p0.precio)
-        alert ("Elegiste un " + p0.nombre + ". Su precio es: $" + p0.precio + "ARS")
+        swal ({
+            text: "Elegiste un " + p0.nombre + ". Su precio es: $" + p0.precio + "ARS",
+        })
         console.log ("Elegiste un " + p0.nombre + ". Su precio es: $" + p0.precio + "ARS")
     }
 else if (opcionUsuario == 1)
 {
     arrayProductosElegidos.push(p1.precio)
-    alert ("Elegiste un " + p1.nombre + ". Su precio es: $" + p1.precio + "ARS")
+    swal ({
+        text: "Elegiste un " + p1.nombre + ". Su precio es: $" + p1.precio + "ARS",
+    })
     console.log ("Elegiste un " + p1.nombre + ". Su precio es: $" + p1.precio + "ARS")
 }
 else if (opcionUsuario == 2)
 {
     arrayProductosElegidos.push(p2.precio)
-    alert ("Elegiste un " + p2.nombre + ". Su precio es: $" + p2.precio + "ARS")
+    swal ({
+        text: "Elegiste un " + p2.nombre + ". Su precio es: $" + p2.precio + "ARS",
+    })
     console.log ("Elegiste un " + p2.nombre + ". Su precio es: $" + p2.precio + "ARS")
 }
 else if (opcionUsuario == 3)
 {
     arrayProductosElegidos.push(p3.precio)
-    alert ("Elegiste un " + p3.nombre + ". Su precio es: $" + p3.precio + "ARS")
+    swal ({
+        text: "Elegiste un " + p3.nombre + ". Su precio es: $" + p3.precio + "ARS",
+    })
     console.log ("Elegiste un " + p3.nombre + ". Su precio es: $" + p3.precio + "ARS")
 }
 else if (opcionUsuario == 4)
 {
     arrayProductosElegidos.push(p4.precio)
-    alert ("Elegiste un " + p4.nombre + ". Su precio es: $" + p4.precio + "ARS")
+    swal ({
+        text: "Elegiste un " + p4.nombre + ". Su precio es: $" + p4.precio + "ARS",
+    })
     console.log ("Elegiste un " + p4.nombre + ". Su precio es: $" + p4.precio + "ARS")
 }
 else if (opcionUsuario ==5)
 { 
-    alert ("Finalizaste tu compra!")
+    swal ({
+        text: "Finalizaste tu compra!",
+    })
     console.log ("Finalizaste tu compra!")
 }
 
 else { 
-    alert ("Error! Opción inválida")
+    swal ({
+        text: "Error! Opción inválida",
+    })
     console.log ("Error! Opción inválida")
 }
 }
@@ -87,9 +109,13 @@ else {
 localStorage.setItem ('carrito', JSON.stringify(arrayProductosElegidos))
 
 //total de la compra
-alert ("Seleccionaste " + arrayProductosElegidos.length + " productos!")
+swal ({
+    text: "Seleccionaste " + arrayProductosElegidos.length + " productos!",
+})
 console.log ("Seleccionaste " + arrayProductosElegidos.length + " productos!")
-alert ("Estos son los precios de tus productos: " + arrayProductosElegidos.join ("$, "))
+swal ({
+    text: "Estos son los precios de tus productos: " + arrayProductosElegidos.join ("$, "),
+})
 console.log ("Estos son los precios de tus productos: " + arrayProductosElegidos.join ("$, "))
 
 //suma de los productos elegidos 
@@ -97,9 +123,13 @@ const valorInicial = 0;
 const suma = arrayProductosElegidos.reduce (
     (accumulator, currentValue) => accumulator + currentValue, valorInicial
 );
-alert ("El total de tu compra es: $" + suma)
+swal ({
+    text: "El total de tu compra es: $" + suma,
+})
 console.log ("El total de tu compra es: $" + suma)
 
-alert ("¡Gracias por elegir Frávega electrónica! Hasta la próxima ;)")
+swal ({
+    text: "¡Gracias por elegir Frávega electrónica! Hasta la próxima ;)",
+})
 console.log ("¡Gracias por elegir Frávega electrónica! Hasta la próxima ;)")
 }
